@@ -55,3 +55,12 @@ class Battle:
             current_turn += 1
         winner = self.player1 if self.player2.is_defeated() else self.player2
         print(f"\n{winner.name} wins!")
+
+
+# Create weapons
+sword = Weapon("Sword", 20)
+axe = Weapon("Axe", 25)
+hammer = Weapon("Hammer", 30)
+spear = Weapon("Spear", 22)
+dagger = Weapon("Dagger", 18)
+club = Weapon("Club", 23)
