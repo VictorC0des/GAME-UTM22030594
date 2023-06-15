@@ -58,12 +58,12 @@ class Battle:
 
 
 # Create weapons
-sword = Weapon("Sword", 20)
+sword = Weapon("Sword", 30)
 axe = Weapon("Axe", 25)
-hammer = Weapon("Hammer", 30)
-spear = Weapon("Spear", 22)
-dagger = Weapon("Dagger", 18)
-club = Weapon("Club", 23)
+hammer = Weapon("Hammer", 20)
+spear = Weapon("Spear", 25)
+dagger = Weapon("Dagger", 20)
+club = Weapon("Club", 10)
 
 # Get player names from user input
 player1_name = input("Enter Player 1 name: ")
