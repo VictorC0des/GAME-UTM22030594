@@ -68,3 +68,11 @@ club = Weapon("Club", 23)
 # Get player names from user input
 player1_name = input("Enter Player 1 name: ")
 player2_name = input("Enter Player 2 name: ")
+
+# Create players with custom names and initial health of 100
+player1 = Player(player1_name, [sword, axe, hammer], 100)
+player2 = Player(player2_name, [spear, dagger, club], 100)
+
+# Start the battle
+battle = Battle(player1, player2)
+battle.start()
