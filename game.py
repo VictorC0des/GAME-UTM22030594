@@ -28,3 +28,12 @@ class Player:
         damage = weapon.damage
         print(f"{opponent.name} takes {damage} damage!")
         opponent.lose_health(damage)
+
+    def lose_health(self, damage):
+        # Method for the player to lose health
+        self.health -= damage
+        print(f"{self.name} loses {damage} health. Remaining health: {self.health}")
+
+    def is_defeated(self):
+        # Method to check if the player is defeated
+        return self.health <= 0
