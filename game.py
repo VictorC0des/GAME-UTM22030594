@@ -64,3 +64,7 @@ hammer = Weapon("Hammer", 30)
 spear = Weapon("Spear", 22)
 dagger = Weapon("Dagger", 18)
 club = Weapon("Club", 23)
+
+# Get player names from user input
+player1_name = input("Enter Player 1 name: ")
+player2_name = input("Enter Player 2 name: ")
