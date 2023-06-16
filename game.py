@@ -1,7 +1,8 @@
 class Weapon:
-    def __init__(self, name, damage):
+    def __init__(self, name, damage, weapon_type):
         self.name = name
         self.damage = damage
+        self.weapon_type = weapon_type
 
     def __repr__(self):
         return self.name
@@ -26,6 +27,16 @@ class Player:
         weapon = self.select_weapon()
         print(f"{self.name} attacks with {weapon.name}!")
         damage = weapon.damage
+
+        opponent_weapon = opponent.select_weapon()
+        if weapon.weapon_type in weapon_weaknesses.get(opponent_weapon.weapon_type, []):
+            damage *= 2
+            print("It's super effective!")
+
+        if weapon.weapon_type in weapon_strengths.get(opponent_weapon.weapon_type, []):
+            damage //= 2
+            print("It's not very effective...")
+
         print(f"{opponent.name} takes {damage} damage!")
         opponent.lose_health(damage)
 
@@ -37,6 +48,7 @@ class Player:
     def is_defeated(self):
         # Method to check if the player is defeated
         return self.health <= 0
+
 
 class Battle:
     def __init__(self, player1, player2):
@@ -57,13 +69,32 @@ class Battle:
         print(f"\n{winner.name} wins!")
 
 
+# Define weapon strengths and weaknesses
+weapon_strengths = {
+    "Sword": ["Spear"],
+    "Axe": ["Sword", "Dagger"],
+    "Hammer": ["Club"],
+    "Spear": ["Hammer", "Club"],
+    "Dagger": ["Spear"],
+    "Club": ["Axe", "Hammer"]
+}
+
+weapon_weaknesses = {
+    "Sword": ["Axe"],
+    "Axe": ["Club", "Hammer"],
+    "Hammer": ["Spear", "Dagger"],
+    "Spear": ["Sword", "Axe"],
+    "Dagger": ["Club"],
+    "Club": ["Sword", "Dagger"]
+}
+
 # Create weapons
-sword = Weapon("Sword", 30)
-axe = Weapon("Axe", 25)
-hammer = Weapon("Hammer", 20)
-spear = Weapon("Spear", 25)
-dagger = Weapon("Dagger", 20)
-club = Weapon("Club", 10)
+sword = Weapon("Sword", 20, "Sword")
+axe = Weapon("Axe", 25, "Axe")
+hammer = Weapon("Hammer", 30, "Hammer")
+spear = Weapon("Spear", 22, "Spear")
+dagger = Weapon("Dagger", 18, "Dagger")
+club = Weapon("Club", 23, "Club")
 
 # Get player names from user input
 player1_name = input("Enter Player 1 name: ")
